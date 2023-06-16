@@ -1,19 +1,43 @@
 :root{
-    background: linear-gradient(180deg, #1b1b32 0%, #2f203b 50%, #663a6e 100%);
+    --violetFoncePlus: #0e0b15;
+    --violetFonce: #1d172b;
+    --violetMedium: #2f203b ;
+    --violetClair: #663a6e;
+    --violetClairPlus: #9538a5;
+    --roseClair: #e371f7;
+    --white: #f5f6f7;
+    --bleuNuit: #0a0a23;
+    --noir: rgba(0, 0, 0, 1);
+    background: linear-gradient(180deg, var(--violetFoncePlus) 0%, var(--violetFonce) 25%, var(--violetMedium) 60%, var(--violetClair) 100%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    color: #f5f6f7;
+    color: var(--white);
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    width: 100vw;
-    height: 100%;
 }
 
 h1, p {
     margin: 1em auto;
     text-align: center;
+}
+h1{
+    font-size: 5vh;
+}
+p{
+    font-size: 3vh;
+}
+.fa-circle{
+    font-size: 10px;
+    margin: 0 2vw;
+    color: var(--white);
 }
 
 form {
@@ -27,7 +51,8 @@ form {
 fieldset {
     border: none;
     padding: 2rem 0;
-    border-bottom: 3px solid #3b3b4f;
+    border-bottom: 3px solid var(--violetClair);
+    /* background: rgba(225, 225, 225, 0.1); */
 }
 
 fieldset:last-of-type {
@@ -43,12 +68,13 @@ input, textarea, select {
     margin: 10px 0 0 0;
     width: 100%;
     min-height: 2em;
+    border-radius: 10px;
 }
 
 input, textarea {
-    background-color: #0a0a23;
-    border: 1px solid #0a0a23;
-    color: #ffffff;
+    background-color: var(--bleuNuit);
+    border: 1px solid var(--bleuNuit);
+    color: var(--white);
 }
 
 .inline {
@@ -56,40 +82,90 @@ input, textarea {
     margin: 0 0.5em 0 0;
     vertical-align: middle;
 }
+input, select, textarea{
+    box-shadow: 0px 3px 4px var(--noir);
+}
 
-input[type="submit"] {
-    display: block;
-    width: 60%;
-    margin: 1em auto;
-    height: 2em;
-    font-size: 1.1rem;
-    background-color: #3b3b4f;
-    border-color: white;
-    min-width: 300px;
+/* enlève le style par défaut du navigateur pour type="checkbox" */
+
+    /* -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none; */
+/* style type="checkbox" */
+input[type="checkbox"]{
+    appearance: none;
+    border-radius: 25px;
+    width: 27px;
+    background: var(--bleuNuit);
+    border: 1px solid var(--violetFonce);
+    box-shadow: inset 0px 3px 3px var(--noir);
+}
+input[type="checkbox"]:checked {
+    background: radial-gradient(var(--roseClair) 0%, var(--violetClairPlus)60%, var(--violetMedium) 100%);
+    position: relative;
+    box-shadow: inset 0px 2px 3px var(--violetFonce);
+
+    &:before {
+      display: block;
+      color: var(--violetMedium);
+      position: absolute;
+    }
+}
+/* enlève le style par défaut du navigateur pour les type="radio" */
+
+
+input[type="radio"]{
+    appearance: none;
+    border-radius: 25px;
+    width: 27px;
+    background: var(--bleuNuit);
+    border: 1px solid var(--violetFonce);
+    box-shadow: inset 0px 3px 3px var(--noir);
+}
+input[type="radio"]:checked {
+    background: radial-gradient(var(--roseClair) 0%, var(--violetClairPlus)60%, var(--violetMedium) 100%);
+    position: relative;
+    box-shadow: inset 0px 2px 3px var(--violetFonce);
+
+    &:before {
+      display: block;
+      color: var(--violetMedium);
+      position: absolute;
+      width: 10px;
+    }
 }
 
 input[type="file"] {
     padding: 1px 2px;
+    /* appearance: none; pourquoi ça marche pas ? */
 }
 
 select{
-    background-color: #0a0a23;
-    color:#ffffff;
-    border: 3px solid #0a0a23;
+    background-color: var(--bleuNuit);
+    color:var(--white);
+    border: 3px solid var(--bleuNuit);
 
 
     option*{
-        background-color: #0a0a23; 
-        font-family: inherit;
-        font-size: inherit;
-        
-        border-radius: 28px;  
+        background-color: var(--bleuNuit); 
+         font-family: inherit;
+        /*font-size: inherit;
+        border: 2px solid var(--bleuNuit);
+        border-radius: 28px;   */
     }
 }
 
-label[for="referrer"]{
-    margin: 0 -4px 0 0;
-}
+
+/* code pour faire disparaître les flèches du input type="number" */
+input[type="number"] {
+    -webkit-appearance: textfield;
+        -moz-appearance: textfield;
+            appearance: textfield;
+    }
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    }
 
 a{
     color: #9538a5;
@@ -99,3 +175,25 @@ a:hover{
     color: #e371f7;
 }
 
+label[for="referrer"]{
+    margin: 0 -4px 0 0;
+}
+input[type="submit"] {
+    display: block;
+    width: 60%;
+    margin: 1em auto;
+    height: 2em;
+    font-size: 1.1rem;
+    background: linear-gradient(360deg, var(--violetFonce) 0%, var(--violetMedium) 50%, var(--violetClair) 100%);
+    box-shadow: inset 0px -5px 10px var(--noir),
+                0 3px 5px 3px var(--noir);
+    border: linear-gradient(360deg, var(--violetFonce) 0%, var(--violetMedium) 50%, var(--violetClair) 100%);
+
+    border-radius: 15px;
+    min-width: 300px;
+    cursor: pointer;
+}
+input[type="submit"]:hover{
+    box-shadow: inset 0px -5px 5px var(--noir),
+    0 3px 5px 3px var(--noir);
+}
