@@ -2,8 +2,8 @@
     --violetFoncePlus: #0e0b15;
     --violetFonce: #1d172b;
     --violetMedium: #2f203b ;
-    --violetClair: #663a6e;
-    --violetClairPlus: #9538a5;
+    --violetClair: #5a3461;
+    --violetClairPlus: #853294;
     --roseClair: #e371f7;
     --white: #f5f6f7;
     --bleuNuit: #0a0a23;
@@ -21,7 +21,7 @@ body {
     margin: 0;
     color: var(--white);
     font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+    font-size: 1em;
 }
 
 h1, p {
@@ -29,15 +29,21 @@ h1, p {
     text-align: center;
 }
 h1{
-    font-size: 5vh;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
 }
 p{
-    font-size: 3vh;
+    font-size: 1em;
 }
-.fa-circle{
-    font-size: 10px;
-    margin: 0 2vw;
-    color: var(--white);
+.forme{
+    width: 10px;
+    height: 10px;
+    margin: 1vw;
+    background-color: var(--white);
+    border-radius: 50%;
+    box-shadow: 0px 3px 4px var(--noir);
+
 }
 
 form {
@@ -183,7 +189,7 @@ input[type="submit"] {
     width: 60%;
     margin: 1em auto;
     height: 2em;
-    font-size: 1.1rem;
+    font-size: 1.1em;
     background: linear-gradient(360deg, var(--violetFonce) 0%, var(--violetMedium) 50%, var(--violetClair) 100%);
     box-shadow: inset 0px -5px 10px var(--noir),
                 0 3px 5px 3px var(--noir);
